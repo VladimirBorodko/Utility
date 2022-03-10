@@ -12,10 +12,10 @@ public final class Thrown: Error, CustomStringConvertible {
     what
   }
   public static func rethrow<T>(
-    _ what: @autoclosure Act.Make<String> = "",
+    _ what: @autoclosure Act.Do<String> = "",
     file: StaticString = #file,
     line: UInt = #line,
-    make: Try.Make<T>
+    make: Try.Do<T>
   ) throws -> T {
     do {
       return try make()

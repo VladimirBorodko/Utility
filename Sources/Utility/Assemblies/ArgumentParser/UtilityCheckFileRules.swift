@@ -10,17 +10,15 @@ extension Utility {
     @Option(help: "The path to destination directory")
     var project = ""
     mutating func run() throws {
-      let tracker = IssueTracker.init(putLine: FileHandle.stdErr(message:))
-      MayDay.sideEffect = { tracker.report(message: "Fatal: " + $0.what) }
-      let finder = Finder(project: project)
-      let configurator = try Configurator(config: finder.readConfig(file: config))
-      let checker = FileRuleChecker(
-        rules: try configurator.makeFileRules(),
+      let finder = try Finder(project: project)
+      let checker = FileRuleChecker(wire: .init(
         report: tracker.report(message:),
         makeFileIterator: { AnyIterator({ readLine() }) },
-        makeLineIterator: finder.makeLineIterator(file:)
-      )
-      try checker.check()
+        listLines: finder.listLines(file:)
+      ))
+      let yaml = try Finder.readContents(file: config)
+      let config = try YamlParser.parse(yaml: yaml)
+      try checker.check(config: config)
       try tracker.finish()
     }
   }

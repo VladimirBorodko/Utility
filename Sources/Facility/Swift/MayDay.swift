@@ -1,4 +1,3 @@
-import Foundation
 /// An error to be handled via sideEffect
 public final class MayDay: Error {
   public let what: String
@@ -11,8 +10,8 @@ public final class MayDay: Error {
     Self.sideEffect(self)
   }
   public static func assert(
-    _ condition: @autoclosure Act.Make<Bool>,
-    _ what: @autoclosure Act.Make<String> = "",
+    _ condition: @autoclosure Act.Do<Bool>,
+    _ what: @autoclosure Act.Do<String> = "",
     file: StaticString = #file,
     line: UInt = #line
   ) {
@@ -20,7 +19,7 @@ public final class MayDay: Error {
     sideEffect(.init(what(), file: file, line: line))
   }
   public static func report(
-    _ what: @autoclosure Act.Make<String> = "",
+    _ what: @autoclosure Act.Do<String> = "",
     file: StaticString = #file,
     line: UInt = #line
   ) {
@@ -37,7 +36,7 @@ public final class MayDay: Error {
   /// }
   /// ```
   /// - Warning: Race condition candidate. Change it once when application starts.
-  public static var sideEffect: Act.Send<MayDay> = { mayDay in
+  public static var sideEffect: Act.Of<MayDay>.Go = { mayDay in
     assertionFailure(mayDay.what, file: mayDay.file, line: mayDay.line)
   }
 }

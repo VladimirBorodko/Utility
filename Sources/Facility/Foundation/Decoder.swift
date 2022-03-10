@@ -7,7 +7,7 @@ extension Decoder {
   }
   internal func rethrow<T>(
     key: CodingKey? = nil,
-    make: Try.Make<T>
+    make: Try.Do<T>
   ) throws -> T {
     try Thrown.rethrow("Decode \(T.self) at " + path(key: key)) {
       try make()

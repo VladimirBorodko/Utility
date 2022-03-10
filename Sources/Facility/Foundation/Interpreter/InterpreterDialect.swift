@@ -3,8 +3,8 @@ extension Interpreter {
   public struct Dialect {
     private var map: [ObjectIdentifier: Any] = [:]
     public init() {}
-    public subscript<T>(_ meta: T.Type = T.self) -> Try.Of<Decoder>.Make<T>? {
-      get { map[.init(meta as Any.Type)] as? Try.Of<Decoder>.Make<T> }
+    public subscript<T>(_ meta: T.Type = T.self) -> Try.Of<Decoder>.Do<T>? {
+      get { map[.init(meta as Any.Type)] as? Try.Of<Decoder>.Do<T> }
       set { map[.init(meta as Any.Type)] = newValue }
     }
     public static var json: Self {

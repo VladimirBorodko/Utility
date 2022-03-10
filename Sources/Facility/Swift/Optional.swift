@@ -1,23 +1,23 @@
 extension Optional {
-  public func or(_ make: @autoclosure Try.Make<Wrapped>) rethrows -> Wrapped {
+  public func or(_ make: @autoclosure Try.Do<Wrapped>) rethrows -> Wrapped {
     try self ?? make()
   }
-  public func or(make: Try.Make<Wrapped>) rethrows -> Wrapped {
+  public func or(make: Try.Do<Wrapped>) rethrows -> Wrapped {
     try self ?? make()
   }
-  public func mapNil(_ make: @autoclosure Act.Make<Wrapped>) -> Optional {
+  public func mapNil(_ make: @autoclosure Act.Do<Wrapped>) -> Optional {
     self ?? make()
   }
-  public func mapNil(make: Try.Make<Wrapped>) rethrows -> Optional {
+  public func mapNil(make: Try.Do<Wrapped>) rethrows -> Optional {
     try self ?? make()
   }
-  public func flatMapNil(_ make: @autoclosure Act.Make<Optional>) -> Optional {
+  public func flatMapNil(_ make: @autoclosure Act.Do<Optional>) -> Optional {
     self ?? make()
   }
-  public func flatMapNil(make: Try.Make<Optional>) rethrows -> Optional {
+  public func flatMapNil(make: Try.Do<Optional>) rethrows -> Optional {
     try self ?? make()
   }
-  public func filter(isIncluded: Try.Of<Wrapped>.Make<Bool>) rethrows -> Optional {
+  public func filter(isIncluded: Try.Of<Wrapped>.Do<Bool>) rethrows -> Optional {
     if let wrapped = self {
       return try isIncluded(wrapped) ? wrapped : nil
     } else {

@@ -1,6 +1,7 @@
 import Foundation
+import Facility
 extension NSRegularExpression {
-  public convenience init(oneLiner: String) throws {
+  convenience init(oneLiner: String) throws {
     do {
       try self.init(pattern: oneLiner, options: [.anchorsMatchLines])
     } catch {

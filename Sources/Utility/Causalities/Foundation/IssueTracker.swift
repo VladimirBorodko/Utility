@@ -1,10 +1,10 @@
 import Foundation
 import Facility
-class IssueTracker {
+final class IssueTracker {
   private var issueCount: UInt = 0
-  private let putLine: Act.Send<String>
+  private let putLine: Act.Of<String>.Go
   let formatter: DateFormatter
-  init(putLine: @escaping Act.Send<String>) {
+  init(putLine: @escaping Act.Of<String>.Go) {
     self.putLine = putLine
     self.formatter = .init()
     formatter.dateFormat = "HH:mm:ss"

@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Stencil",
+        "repositoryURL": "https://github.com/stencilproject/Stencil.git",
+        "state": {
+          "branch": null,
+          "revision": "ccd9402682f4c07dac9561befd207c8156e80e20",
+          "version": "0.14.2"
+        }
+      },
+      {
         "package": "swift-argument-parser",
         "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
         "state": {

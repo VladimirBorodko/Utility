@@ -123,12 +123,7 @@ extension Interpreter {
       let tree = try Thrown.rethrow("Not present " + interpreter.path(key: key)) {
         try ?!getTree(key: key)
       }
-      return .init(
-        tree: tree,
-        dialect: interpreter.dialect,
-        userInfo: interpreter.userInfo,
-        codingPath: interpreter.codingPath + [key]
-      )
+      return interpreter.make(tree: tree, key: key)
     }
   }
 }

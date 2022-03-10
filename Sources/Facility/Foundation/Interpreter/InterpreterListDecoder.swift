@@ -22,7 +22,7 @@ extension Interpreter {
     }
     private mutating func advanceAfter<T>(
       _ type: T.Type = T.self,
-      make: Try.Of<Interpreter>.Make<T>
+      make: Try.Of<Interpreter>.Do<T>
     ) throws -> T {
       guard let list = self.list, currentIndex < list.count else {
         throw MayDay("Out of bounds " + interpreter.path(key: key))
@@ -32,12 +32,7 @@ extension Interpreter {
       return result
     }
     private func makeNested(tree: Tree) -> Interpreter {
-      .init(
-        tree: tree,
-        dialect: interpreter.dialect,
-        userInfo: interpreter.userInfo,
-        codingPath: interpreter.codingPath + [Key.int(currentIndex)]
-      )
+      interpreter.make(tree: tree, key: Key.int(currentIndex))
     }
     public mutating func decodeNil() throws -> Bool {
       try advanceAfter { nested in
