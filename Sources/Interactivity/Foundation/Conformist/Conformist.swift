@@ -16,6 +16,11 @@ public final class Conformist: NSObject {
     self.responders = conformance.responders
     self.protocols = conformance.protocols
     super.init()
+    for (selector, responder) in responders {
+      if !responder.responds(to: selector) {
+        throw Thrown("Wrong responder for \(selector)")
+      }
+    }
     for aProtocol in protocols.values {
       guard !protocol_isEqual(aProtocol, NSObjectProtocol.self) else { continue }
       try checkSelectors(aProtocol: aProtocol)
