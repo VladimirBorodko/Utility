@@ -27,10 +27,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionStreamDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:))
       }
       public final class Responder: Conformist.Responder<ReadClosed> {
@@ -66,10 +66,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionStreamDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:))
       }
       public final class Responder: Conformist.Responder<WriteClosed> {
@@ -105,10 +105,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionStreamDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:))
       }
       public final class Responder: Conformist.Responder<BetterRouteDiscovered> {
@@ -150,10 +150,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionStreamDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:input:output:))
       }
       public final class Responder: Conformist.Responder<DidBecomeStream> {

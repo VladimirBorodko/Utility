@@ -37,5 +37,5 @@ public enum Act {
       }
     }
   }
-  public typealias Fetch<T1> = (T1) -> T1.Reply where T1: Query
+  public typealias Reply<T: Query> = (T) -> T.Reply
 }

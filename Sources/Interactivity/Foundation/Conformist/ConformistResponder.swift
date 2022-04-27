@@ -1,7 +1,7 @@
 import Foundation
 import Facility
 public protocol ConformistResponder: NSObjectProtocol {
-  var conform: Protocol { get }
+  var conforms: Protocol { get }
 }
 extension Conformist {
   open class Responder<T: ConformistRequest>: NSObject, ConformistResponder {
@@ -9,8 +9,8 @@ extension Conformist {
     public init(handle: @escaping Act.Of<T>.Do<T.Response>) {
       self.handle = handle
     }
-    public var conform: Protocol {
-      T.conform
+    public var conforms: Protocol {
+      T.conforms
     }
   }
 }

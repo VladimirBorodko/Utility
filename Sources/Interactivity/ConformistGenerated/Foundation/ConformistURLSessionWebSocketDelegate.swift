@@ -30,10 +30,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionWebSocketDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:aProtocol:))
       }
       public final class Responder: Conformist.Responder<DidOpen> {
@@ -77,10 +77,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionWebSocketDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:code:reason:))
       }
       public final class Responder: Conformist.Responder<DidClose> {

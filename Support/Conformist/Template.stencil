@@ -46,7 +46,7 @@ extension Conformist {
       public static var conform: Protocol {
         {{module}}.{{name}}.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond({% for argument in method.arguments %}{{argument.name}}:{% endfor %}))
       }
 {% for definition in method.definitions %}

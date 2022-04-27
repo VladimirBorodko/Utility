@@ -5,20 +5,20 @@ extension Conformist {
     public private(set) var responders: [Selector: ConformistResponder]
     public subscript<T: ConformistRequest>(request: T) -> Act.Of<T>.Do<T.Response>? {
       get {
-        guard let responder = responders[T.respond] else { return nil }
+        guard let responder = responders[T.responds] else { return nil }
         guard let responder = responder as? Responder<T> else {
-          MayDay.report("Type mismatch for \(T.respond)")
+          MayDay.report("Type mismatch for \(T.responds)")
           return nil
         }
         return responder.handle
       }
       set {
-        responders[T.respond] = newValue.map(T.makeResopnder(handle:))
+        responders[T.responds] = newValue.map(T.makeResopnder(handle:))
       }
     }
     public var protocols: [ObjectIdentifier: Protocol] {
       responders
-        .map { $0.value.conform }
+        .map { $0.value.conforms }
         .reduce(
           into: [.init(NSObjectProtocol.self as Protocol): NSObjectProtocol.self],
           expand(protocols:value:)

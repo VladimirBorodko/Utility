@@ -33,10 +33,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:request:complete:))
       }
       public struct Completion {
@@ -99,10 +99,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:))
       }
       public final class Responder: Conformist.Responder<IsWaitingForConnectivity> {
@@ -147,10 +147,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:response:request:complete:))
       }
       public struct Completion {
@@ -216,10 +216,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:challenge:complete:))
       }
       public struct Completion {
@@ -285,10 +285,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:complete:))
       }
       public struct Completion {
@@ -353,10 +353,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:sent:total:expected:))
       }
       public final class Responder: Conformist.Responder<DidSendBodyData> {
@@ -401,10 +401,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:metrics:))
       }
       public final class Responder: Conformist.Responder<DidFinishCollectingMetrics> {
@@ -445,10 +445,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionTaskDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:task:error:))
       }
       public final class Responder: Conformist.Responder<DidComplete> {

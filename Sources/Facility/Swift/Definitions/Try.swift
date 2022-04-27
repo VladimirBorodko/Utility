@@ -37,5 +37,5 @@ public enum Try {
       }
     }
   }
-  public typealias Fetch<T1> = (T1) throws -> T1.Reply where T1: Query
+  public typealias Reply<T: Query> = (T) throws -> T.Reply
 }

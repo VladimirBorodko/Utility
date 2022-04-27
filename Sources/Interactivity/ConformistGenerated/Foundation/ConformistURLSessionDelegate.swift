@@ -27,10 +27,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:error:))
       }
       public final class Responder: Conformist.Responder<DidBecomeInvalid> {
@@ -69,10 +69,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:challenge:complete:))
       }
       public struct Completion {
@@ -130,10 +130,10 @@ extension Conformist {
       ) -> Conformist.Responder<Self> {
         Responder(handle: handle)
       }
-      public static var conform: Protocol {
+      public static var conforms: Protocol {
         Foundation.URLSessionDelegate.self
       }
-      public static var respond: Selector {
+      public static var responds: Selector {
         #selector(Responder.respond(session:))
       }
       public final class Responder: Conformist.Responder<DidFinishEventsForBackgroundURLSession> {

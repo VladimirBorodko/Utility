@@ -3,7 +3,7 @@ public final class MayDay: Error, CustomStringConvertible {
   public let what: String
   public let file: StaticString
   public let line: UInt
-  public init(_ what: String = "", file: StaticString = #file, line: UInt = #line) {
+  public init(_ what: String = "", file: StaticString = #fileID, line: UInt = #line) {
     self.what = what
     self.file = file
     self.line = line
@@ -15,7 +15,7 @@ public final class MayDay: Error, CustomStringConvertible {
   public static func assert(
     _ condition: @autoclosure Act.Do<Bool>,
     _ what: @autoclosure Act.Do<String> = "",
-    file: StaticString = #file,
+    file: StaticString = #fileID,
     line: UInt = #line
   ) {
     guard !condition() else { return }
@@ -23,7 +23,7 @@ public final class MayDay: Error, CustomStringConvertible {
   }
   public static func report(
     _ what: @autoclosure Act.Do<String> = "",
-    file: StaticString = #file,
+    file: StaticString = #fileID,
     line: UInt = #line
   ) {
     sideEffect(.init(what(), file: file, line: line))
