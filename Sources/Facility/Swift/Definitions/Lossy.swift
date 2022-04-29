@@ -148,6 +148,12 @@ public enum Lossy<Value> {
     case .error(let error): throw error
     }
   }
+  public func flatten<T>() -> Lossy<T> where Value == Lossy<T> {
+    switch self {
+    case .value(let value): return value
+    case .error(let error): return .error(error)
+    }
+  }
   public static prefix func ?! (value: Self) throws -> Value {
     switch value {
     case .value(let value): return value
